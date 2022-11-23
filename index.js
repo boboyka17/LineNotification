@@ -3,7 +3,7 @@ var CronJob = require('cron').CronJob;
 var axios = require('axios');
 var qs = require('qs');
 var data = qs.stringify({
-    'message': 'test' 
+    'message': 'สวัสดีปะรเทศไทย' 
   });
   var config = {
     method: 'post',
@@ -16,7 +16,7 @@ var data = qs.stringify({
   };
 
 var job = new CronJob(
-	'* * * * * *',
+	'1 * * * * *',
 	function() {
 		axios(config)
 .then(function (response) {
@@ -28,7 +28,7 @@ var job = new CronJob(
 	},
 	null,
 	true,
-	'America/Los_Angeles'
+	'Asia/Bangkok'
 );
 // Use this if the 4th param is default value(false)
-// job.start()
+job.start()
